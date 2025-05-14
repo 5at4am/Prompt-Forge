@@ -1,0 +1,20 @@
+{
+  "prompts": [
+    {
+      "id": "prompt_1747212310950",
+      "timestamp": "2025-05-14T08:45:10.950Z",
+      "original": "story of cat\n",
+      "beginner": "Write a story about a cat.",
+      "intermediate": "Compose a short narrative focusing on the adventures of a curious cat exploring a new environment. Use descriptive language to depict the cat's actions, emotions, and interactions with other animals or objects. Maintain a light-hearted and playful tone throughout the story. For example, describe how the cat sneaks through a garden chasing butterflies or how it cleverly outwits a mischievous squirrel stealing its food.",
+      "advanced": "Imagine you are crafting a children's storybook featuring a cat as the main character. The story should revolve around the cat's journey of self-discovery in a whimsical setting like a magical forest. Begin by introducing the cat's personality traits and motivations, then unfold a series of challenges or encounters that help the cat learn valuable lessons. Ensure the narrative includes dialogues between the cat and other creatures to showcase its growth and development. The story should conclude with a heartwarming resolution that leaves young readers feeling inspired and entertained. Format the output as a short story with at least 500 words, rich in sensory details and vivid imagery to engage the audience's imagination."
+    },
+    {
+      "id": "prompt_1747212331613",
+      "timestamp": "2025-05-14T08:45:31.613Z",
+      "original": "story of cat in wild jungle",
+      "beginner": "Write a story about a cat in a wild jungle.",
+      "intermediate": "Compose a narrative that follows a curious cat exploring the depths of a dense and untamed jungle. Use descriptive language to vividly depict the sights, sounds, and challenges the cat encounters during its adventure. Maintain a tone of wonder and discovery throughout the story.",
+      "advanced": "Imagine you are crafting a short story for a children's book about a tabby cat named Whiskers who embarks on a thrilling journey through a lush, wild jungle. The story should emphasize themes of courage, friendship, and nature's beauty. Ensure the narrative includes Whiskers navigating through obstacles like towering trees, mysterious creatures, and a rushing river. The tone should be whimsical yet engaging, appealing to young readers with its sense of exploration and excitement. End the story with Whiskers finding a new feline friend and a sense of belonging in the vibrant jungle setting."
+    }
+  ]
+}

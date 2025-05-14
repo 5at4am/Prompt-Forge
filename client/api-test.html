@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>API Test</h1>
+  
+  <h2>Test API Connection</h2>
+  <button id="test-api">Test API</button>
+  <pre id="test-result">Results will appear here...</pre>
+  
+  <h2>Test Enhance Endpoint</h2>
+  <textarea id="prompt" placeholder="Enter a prompt...">Write a story about a robot</textarea>
+  <button id="enhance-prompt">Enhance Prompt</button>
+  <pre id="enhance-result">Results will appear here...</pre>
+  
+  <script>
+    // Test API connection
+    document.getElementById('test-api').addEventListener('click', async () => {
+      const resultEl = document.getElementById('test-result');
+      resultEl.textContent = 'Testing API connection...';
+      
+      try {
+        const response = await fetch('http://localhost:3001/api/test');
+        const data = await response.json();
+        resultEl.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        resultEl.textContent = `Error: ${error.message}`;
+      }
+    });
+    
+    // Test enhance endpoint
+    document.getElementById('enhance-prompt').addEventListener('click', async () => {
+      const promptText = document.getElementById('prompt').value;
+      const resultEl = document.getElementById('enhance-result');
+      resultEl.textContent = 'Enhancing prompt...';
+      
+      try {
+        const response = await fetch('http://localhost:3001/api/prompts/enhance', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          mode: 'cors',
+          credentials: 'omit',
+          body: JSON.stringify({ original: promptText })
+        });
+        
+        if (!response.ok) {
+          throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        resultEl.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        resultEl.textContent = `Error: ${error.message}`;
+        console.error('Error details:', error);
+      }
+    });
+  </script>
+</body>
+</html>
