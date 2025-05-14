@@ -14,9 +14,12 @@ echo.
 echo Step 2: Adding remote origin (if not already added)...
 git remote -v | findstr "origin" > nul
 if %ERRORLEVEL% NEQ 0 (
+    echo Attempting to add remote origin...
     git remote add origin https://github.com/5at4am/Prompt-Forge.git
     if %ERRORLEVEL% NEQ 0 (
         echo Error adding remote origin.
+        echo Detailed error information:
+        git remote add origin https://github.com/5at4am/Prompt-Forge.git 2>&1
         goto error
     )
     echo Remote origin added successfully.
