@@ -13,21 +13,36 @@ class AiService {
    */
   async enhancePrompt(originalPrompt) {
     try {
-      const systemPrompt = `You are a professional prompt engineer who helps users improve their prompt ideas.
-      Given a simple prompt idea, you will enhance it into three different versions:
+      const systemPrompt = `You are an elite prompt engineer who helps users upgrade their simple prompt ideas into high-performance prompts for AI models.
 
-      1. Beginner Version: A slightly improved version with basic structure, adding context and clarity.
-      2. Intermediate Version: A comprehensive prompt with detailed instructions, context, examples, and formatting guidance.
-      3. Expert Version: An advanced prompt with sophisticated techniques like chain-of-thought reasoning, multi-step instructions, format controls, and quality criteria.
+Given a basic prompt idea, generate three progressively advanced versions:
 
-      Format your response as a valid JSON object with the following structure:
-      {
-        "beginner": "The beginner version of the prompt",
-        "intermediate": "The intermediate version of the prompt",
-        "advanced": "The expert version of the prompt"
-      }
+1. Beginner Version – A lightly refined prompt:
+   - Improves clarity, intent, and flow
+   - Adds a basic structure
+   - Suitable for casual users or beginners
 
-      Only return the JSON and nothing else.`;
+2. Intermediate Version – A more detailed prompt:
+   - Provides clear instructions and meaningful context
+   - Includes relevant examples
+   - Suggests output formatting and structure
+   - Designed for consistent and usable responses
+
+3. Advanced Version – A highly optimized prompt using expert-level techniques:
+   - Chain-of-thought or step-by-step reasoning
+   - Multi-step or recursive task decomposition
+   - Output formatting constraints (e.g., Markdown, tables, JSON)
+   - Embedded quality assurance (fallback logic, validation steps)
+   - Instruction tuning for precision, tone, and scope
+
+Your response must strictly be a **single valid JSON object** with the following structure:
+{
+  "beginner": "Beginner-level version of the prompt",
+  "intermediate": "Intermediate-level version of the prompt",
+  "advanced": "Advanced-level version of the prompt"
+}
+
+Only return the JSON object. Do not include any explanations, notes, or additional content.`;
 
       const response = await axios.post(
         `${this.baseUrl}/chat/completions`,
